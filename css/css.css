@@ -1,0 +1,237 @@
+/* The Overlay (background) */
+.overlay {
+  /* Height & width depends on how you want to reveal the overlay (see JS below) */   
+  height: 100%;
+  width: 100%;
+  position: fixed; /* Stay in place */
+  z-index: 10; /* Sit on top */
+  left: 0;
+  top: 0;
+  background-color: rgb(255,255,255); /* Black fallback color */
+  background-color: rgba(255,255,255, 0.8); /* Black w/opacity */
+  overflow-x: hidden; /* Disable horizontal scroll */
+  transition: 0.5s; /* 0.5 second transition effect to slide in or slide down the overlay (height or width, depending on reveal) */
+}
+
+/* Position the content inside the overlay */
+.overlay-content {
+  position: relative;
+  top: 15%; /* 25% from the top */
+  left:calc(50% - 325px);
+  background-color: #ffffff;
+  border-style: solid;
+  border-radius: 20px;
+  border-color: #79C142;
+  border-width:2px;
+  width: 650px; /* 100% width */
+  padding-top: 50px;
+  padding-left: 30px;
+  padding-right: 30px;
+  padding-bottom: 50px;
+  text-align: center; /* Centered text/links */
+  margin-top: 30px; /* 30px top margin to avoid conflict with the close button on smaller screens */
+}
+
+.overlay-top-content {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  text-align: center;
+  border-bottom-style: solid;
+  border-bottom-color: #79C142;
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+  border-width:1px;
+}
+.overlay-top-content-left {
+  position: relative;
+  width: 250px;
+  text-align: center;
+  float:left;
+}
+.overlay-top-content-right {
+  position: relative;
+  width:330px;
+  padding-left: 40px;
+  padding-top: 20px;
+  text-align: left;
+  float:left;
+}
+.formlabel {
+  position: relative;
+  width:100%;
+  padding-left:5px;
+  text-align: left;
+}
+
+input {
+  width: 100%;
+  padding: 6px 10px;
+  margin-top: 8px;
+  margin-bottom:10px;
+  box-sizing: border-box;
+  border: 2px solid #D5D5D5;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  outline: none;
+}
+
+/* The navigation links inside the overlay */
+.overlay a {
+  padding: 8px;
+  text-decoration: none;
+  font-size: 36px;
+  color: #818181;
+  display: block; /* Display block instead of inline */
+  transition: 0.3s; /* Transition effects on hover (color) */
+}
+
+/* When you mouse over the navigation links, change their color */
+.overlay a:hover, .overlay a:focus {
+  color: #f1f1f1;
+}
+
+/* Position the close button (top right corner) */
+.overlay .closebtn {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  font-size: 20px;
+  border-style: solid;
+  color:#5b8f32;
+  border-color: #5b8f32;
+  border-radius: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-width:1px;
+  font-family: "Times New Roman", Times, serif;
+  cursor: pointer;
+}
+
+.formbutton {
+    width:150px;
+border-color: #5b8f32;
+background-color: #ffffff;
+color:#5b8f32;
+}
+.formbutton:hover{
+border-color: #5b8f32;
+background-color: #5b8f32;
+color:#ffffff;
+}
+
+/* .expandable {
+  max-height: 100% !important;
+  transition: max-height 0.15s ease-out;
+  overflow: hidden;
+  width:100%;
+  display:inline-block;
+  background-color:#F8F8F8;
+  overflow:hidden;
+  height:200px;
+  padding-bottom:10px;
+ }
+ .expandable:hover {
+  max-height: 500px;
+  transition: max-height 0.25s ease-in;
+ } */
+ 
+
+
+.accordion{ 
+  display: inline-block;
+  text-align: left;
+  margin: 1%;
+  width: 70%; 
+}
+  
+.accordion:hover .accordion-content{
+    max-height: 300px;
+}
+
+.accordion-content{
+  -webkit-transition: max-height 1s; 
+  -moz-transition: max-height 1s; 
+  -ms-transition: max-height 1s; 
+  -o-transition: max-height 1s; 
+  transition: max-height 1s;  
+  background: #dae0e7;
+  overflow: hidden;
+  max-height: 0;
+  
+}
+
+.accordion-inner{
+  padding: 10px;
+}
+
+
+
+.accordion-toggle{
+  -webkit-transition: background .1s linear;   
+  -moz-transition: background .1s linear;   
+  -ms-transition: background .1s linear;   
+  -o-transition: background .1s linear;   
+  transition: background .1s linear;   
+  border-bottom: 1px solid #000;
+  /*background: #0b4513;*/
+  border-radius: 3px;
+  color: #000;
+  display: block;
+  margin: 0 0 0;
+  padding: 5px;
+  text-align: center;
+  text-decoration: none;
+}
+
+.unselectable {
+  -webkit-touch-callout: text;
+  -webkit-user-select: text;
+  -khtml-user-select: text;
+  -moz-user-select: text;
+  -ms-user-select: text;
+  user-select: text;
+}
+
+.textquestionsize {
+  font-size:22px
+}
+.textanswersize {
+  font-size:18px;
+}
+
+/* When the height of the screen is less than 450 pixels, change the font-size of the links and position the close button again, so they don't overlap */
+@media screen and (max-height: 450px) {
+
+  .overlay a {font-size: 20px}
+  .overlay .closebtn {
+    font-size: 40px;
+    top: 15px;
+    right: 35px;
+  }
+
+}
+
+@media screen and (max-width: 450px) {
+
+  .accordion{ 
+    width: 95%; 
+  }
+
+  .textquestionsize {
+    font-size:18px;
+  }
+  .textanswersize {
+    font-size:16px;
+  }
+
+  .unselectable {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+
+}
